@@ -13,10 +13,13 @@ public class EventLog {
         else if (event.getName() == null|| event.getAction() == null){
             throw new IllegalArgumentException();
         }
-        else{
+        else if(event.getName().equals("TextMessaging") || event.getName().equals("Face2Face") || event.getName().equals("PhoneCall") || event.getName().equals("Unknown")){
             System.out.println(event);
             eventList.add(event);
             return true;
+        }
+        else{
+            throw new IllegalArgumentException();
         }
     }
     public int getNumEvent(){

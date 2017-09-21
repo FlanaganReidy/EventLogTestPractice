@@ -16,7 +16,7 @@ public class EventLogTest {
     @Before
     public void setUp() throws Exception {
         event.setAction("Party Really Hard");
-        event.setName("Party");
+        event.setName("TextMessaging");
 
     }
 
@@ -29,6 +29,7 @@ public class EventLogTest {
     @Test
     public void addEvent() throws Exception {
         EventLog log = new EventLog();
+        //adds allowed event
         assertTrue(log.addEvent(event));
 
 
@@ -38,7 +39,9 @@ public class EventLogTest {
     public void addEventNullPointer() throws Exception{
         EventLog log = new EventLog();
         expected.expect(IllegalArgumentException.class);
+        //will not add event with null name or null action
         assertTrue(log.addEvent(secondEvent));
+        //will not add event with null pointer
         assertTrue(log.addEvent(thirdEvent));
     }
 
